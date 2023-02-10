@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./NewPost.module.css";
 import MainFeedBars from "../../components/MainFeedBars/MainFeedBars";
 
-const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
+const NewPost = ({ user, userProfile, handleAddPost, allPosts }) => {
   const [form, setForm] = useState({
     emotion: "Bored",
     content: "",
@@ -22,11 +22,9 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
     handleAddPost(form);
   };
 
-
-
   return (
     <>
-    <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts}/>
+      <MainFeedBars user={user} userProfile={userProfile} allPosts={allPosts} />
       <div className={styles.container}>
         <h1>Post a Feel</h1>
         <form className={styles.formContainer} onSubmit={handleSubmit}>
@@ -111,7 +109,6 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
                 😌
               </span>
             )}
-            
           </div>
           <label htmlFor="emotion-input">What emotion are you feeling?</label>
           <select
@@ -159,13 +156,19 @@ const NewPost = ({user, userProfile, handleAddPost, allPosts}) => {
           ></textarea>
           <div className={styles.checkboxContainer}>
             <label>
-              {form.public
-                ? <p>Public <i className="fa-solid fa-earth-americas"></i></p>
-                : <p>Public <i className="fa-solid fa-earth-americas"></i></p>}
+              {form.public ? (
+                <p>
+                  Public <i className="fa-solid fa-earth-americas"></i>
+                </p>
+              ) : (
+                <p>
+                  Public <i className="fa-solid fa-earth-americas"></i>
+                </p>
+              )}
             </label>
             <input
               checked={form.public}
-              className='checkbox'
+              className="checkbox"
               type="checkbox"
               name="public"
               onChange={({ target }) =>
